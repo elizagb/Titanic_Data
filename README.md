@@ -1,2 +1,2 @@
 # titanic_data
-Organizing and visualizing data in csv file containing data regarding Titanic passengers
+Organizing and visualizing data in a csv file regarding Titanic passengers.
