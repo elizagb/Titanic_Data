@@ -1,5 +1,4 @@
 """
-Project 7
 Author: Eliza Black
 Credits: https://www.geeksforgeeks.org/python-find-most-frequent-element-in-a-list/
 Description: Organizing and visualizing data in csv file regarding Titanic passengers
@@ -46,6 +45,8 @@ def load_data(file_name: str, types: dict) -> dict:
 
             columns.append(col_list)
 
+        # Creating dictionary with kys variable as dict keys and columns list as the values
+        # Format example of key, value pair: ('PassengerId', <class 'int'>): [1, 2, 3, 4....]
         dict_from_lists = {k: [k[1](v) for v in vals] for k, vals in zip(keys, columns)}
 
         return dict_from_lists
@@ -55,7 +56,7 @@ def summarize(data: dict):
     """
     Takes the dictionary returned by load_data as the data parameter and summarizes each dictionary
     value, printing the results, right-aligning the numerical results for better readability.
-    For int and float values, calculate the min, max, mean, standard deviation, and mode
+    For int and float values, calculates the min, max, mean, standard deviation, and mode
     For non-numerical data (e.g., strings), output the number of unique values
 
     :param data: dictionary returned by load_data
@@ -65,6 +66,7 @@ def summarize(data: dict):
     for key, values in data.items():
         print("Statistics for " + str(key[0]) + ":")
 
+        # For dictionary values that contain integers and floats, performs mean, mode, etc calculations:
         if isinstance(values[1], int or float):
 
             min_val = round(float(min(values)), 1)
@@ -86,6 +88,7 @@ def summarize(data: dict):
             print(f"{stdev_str:>8}", f"{stdev_val:>6}")
             print(f"{mode_str:>8}", f"{mode_val:>6}")
 
+        # For dictionary values that contain strings, performs the following:
         elif isinstance(values[1], str):
 
             # Finding most common value and number of unique values
@@ -116,15 +119,15 @@ def pearson_corr(x: list, y: list) -> float:
     Takes two lists of numerical values (ints or floats) and returns the Pearson correlation coefficient r.
     r results in a value in the range (-1, 1).
 
-
     :param x: list of numerical values (ints or floats)
     :param y: list of numerical values (ints or floats)
     :return: corr_rounded: rounded Pearson correlation coefficient r
     """
+    # CREDIT: this function is from Python Programming in Context, 3rd Edition
 
-    # Make sure x and y have the same length. Raise an exception otherwise.
+    # Makes sure x and y have the same length. Raises an exception otherwise.
     if len(x) != len(y):
-        print("x and y need to be smae length")
+        print("x and y need to be same length")
 
     x_bar = statistics.mean(x)
     y_bar = statistics.mean(y)
