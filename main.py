@@ -1,6 +1,10 @@
 """
 Author: Eliza Black
-Credits: https://www.geeksforgeeks.org/python-find-most-frequent-element-in-a-list/
+
+Credits: 
+University of Oregon CIS 210 Project 7 Outline
+https://www.geeksforgeeks.org/python-find-most-frequent-element-in-a-list/
+
 Description: Organizing and visualizing data in csv file regarding Titanic passengers
 """
 
